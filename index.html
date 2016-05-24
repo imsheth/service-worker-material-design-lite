@@ -46,30 +46,23 @@
     }
     </style>
     <script>
-    var scope = 'hello/';
-    var registration;
-
-    function register() {
+    window.addEventListener('load', function() {
+        var outputElement = document.getElementById('output');
         navigator.serviceWorker.register('service-worker.js', {
-                scope: scope
+                scope: './'
             })
             .then(function(r) {
-                console.log('registered: ');
-                registration = r;
-                console.log(registration);
+                console.log('registered service worker');
             })
             .catch(function(whut) {
                 console.error('uh oh... ');
                 console.error(whut);
             });
-    }
 
-    function unregister() {
-        registration.unregister()
-            .then(function() {
-                console.log('unregistered');
-            });
-    }
+        window.addEventListener('beforeinstallprompt', function(e) {
+            outputElement.textContent = 'beforeinstallprompt Event fired';
+        });
+    });
     </script>
 </head>
 
