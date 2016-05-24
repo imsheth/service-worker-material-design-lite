@@ -1,0 +1,15 @@
+{
+  "name": "service-worker-material-design-lite",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "*.pem"
+  ],
+  "dependencies": {
+    "sw-toolbox": "^3.1.1"
+  }
+}
